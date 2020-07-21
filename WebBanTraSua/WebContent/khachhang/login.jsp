@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,13 +32,13 @@
 					<img src="img\ts\logodn.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form action="<%=request.getContextPath()%>/dangnhap" method="POST" class="login100-form validate-form">
 					<span class="login100-form-title">
-						ĐĂNG NHẬP
+						Đăng nhập
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Tên đăng nhập">
+						<input class="input100" type="text" name="username" placeholder="TÃÂªn ÃÂÃÂng nhÃ¡ÂºÂ­p">
 <!--						<span class="focus-input100"></span>-->
 <!--						<span class="symbol-input100">-->
 <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
@@ -44,7 +46,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Mật khẩu">
+						<input class="input100" type="password" name="password" placeholder="MÃ¡ÂºÂ­t khÃ¡ÂºÂ©u">
 <!--						<span class="focus-input100"></span>-->
 <!--						<span class="symbol-input100">-->
 <!--							<i class="fa fa-lock" aria-hidden="true"></i>-->
@@ -52,23 +54,23 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Đăng nhập
+						<button class="login100-form-btn" type="submit">
+							ÄÄng Nháº­p
 						</button>
 					</div>
-
+					<p>${error}</p>	
 					<div class="text-center p-t-12">
 						<span class="txt1">
-							Quên
+							QuÃÂªn
 						</span>
 						<a class="txt2" href="#">
-							Tên đăng nhập / Mật khẩu?
+							TÃÂªn ÃÂÃÂng nhÃ¡ÂºÂ­p / MÃ¡ÂºÂ­t khÃ¡ÂºÂ©u?
 						</a>
 					</div>
 
 					<div class="text-center p-t-136">
 						<a class="txt2" href="register.html">
-							Đăng ký tài khoản
+							ÃÂÃÂng kÃÂ½ tÃÂ i khoÃ¡ÂºÂ£n
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>

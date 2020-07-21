@@ -7,33 +7,37 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ConnectToDatabase {
-	public ConnectToDatabase(){
-		
-	}
-	public static Connection getConnect(){
+	//
+	public Connection getConnectDB() {
 		Connection connection = null;
 		try {
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			connection=DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=web;user=sa;password=nguyenthuytrang");
-			System.out.println("Connect success");
-		} catch (SQLException | ClassNotFoundException e) {
-			System.out.println("Error when you connect to database!Error is: "+e.getMessage());
+
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = "jdbc:mysql://127.0.0.1:3306/webbantrasua";
+			try {
+				connection = DriverManager.getConnection(url, "root", "1234");
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("fail");
+			}
+
+		} catch (ClassNotFoundException e) {
+			System.out.println("fail");
 		}
+		
 		return connection;
-	}
-	public static void main(String[] args) {
-		System.out.println(getConnect());
+
 	}
 	public  void excuteSql(String sql) throws Exception{
-		Connection connect =getConnect();
+		Connection connect =getConnectDB();
 		Statement stmt =    connect.createStatement();
 		stmt.executeUpdate(sql);
 	}
 	public ResultSet selectData(String sql) throws Exception{
-		Connection connect =getConnect();
+		Connection connect =getConnectDB();
 		Statement stmt =    connect.createStatement();
 		ResultSet rs=	stmt.executeQuery(sql);
 		return rs;
 	}
 }
-
