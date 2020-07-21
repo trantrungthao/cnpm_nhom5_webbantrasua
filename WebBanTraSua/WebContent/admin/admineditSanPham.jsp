@@ -22,7 +22,7 @@
 	<div class="container">
   <h2>Sửa thông tin sản phẩm</h2>
   <%String id = request.getParameter("id");
-  		ResultSet rs = new ConnectToDatabase().prepareStatement("select * from Sanpham where Masanpham='"+id+"'");
+  		ResultSet rs = new ConnectToDatabase().selectData("select * from Sanpham where Masanpham='"+id+"'");
   		while(rs.next()){
   %>
   <form class="form-horizontal" action="ThemSuaXoaSP" method="post">

@@ -81,6 +81,7 @@
 					<%
 					ConnectToDatabase con = new ConnectToDatabase();
 					ResultSet rs = con.selectData("select * from Sanpham");
+					
 					%>
 					<table class="table table-hover" id="dev-table"> 
 						<thead> 
