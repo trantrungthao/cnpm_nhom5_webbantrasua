@@ -66,7 +66,7 @@
 					Admin  <small>small</small>
 				</h1>
 				<ol class="breadcrumb">
-					<li><a href="<%=request.getContextPath()%>/account.jsp"><i class="fa fa-dashboard"></i>Đăng xuất</a></li>
+					<li><a href="<%=request.getContextPath()%>/login.jsp"><i class="fa fa-dashboard"></i>Đăng xuất</a></li>
 				</ol>
 			</section>
 			<!-- Main content -->
@@ -581,6 +581,7 @@
 
 					</section>
 		</div>
+		</section>
 		<!-- /.content-wrapper -->
 		<footer class="main-footer">
 			<div class="pull-right hidden-xs">
@@ -590,6 +591,7 @@
 				href="http://facebook.com">AnonKing Studio</a>.
 			</strong> All rights reserved.
 		</footer>
+	</div>
 	</div>
 	<!-- ./wrapper -->
 

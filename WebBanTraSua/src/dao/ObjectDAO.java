@@ -1,5 +1,11 @@
 package dao;
 
-public interface ObjectDAO {
+import model.SanPham;
 
+public interface ObjectDAO {
+	boolean insert(SanPham sanpham);
+
+	boolean edit(SanPham sanpham);
+
+	boolean delete(String masp);
 }

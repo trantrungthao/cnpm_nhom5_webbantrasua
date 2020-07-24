@@ -42,31 +42,29 @@
 				<ul class="sidebar-menu">
 
 					<li><a
-						href="adminquanlykhachhang.jsp"> <i
+						href="#"> <i
 							class="fa fa-th"></i> <span>Quản lý khách hàng</span>
 
 					</a></li>
 
-
-					<li class="treeview"><a href="adminquanlysanpham.jsp"> <i class="fa fa-th"></i>
+					<li class="treeview"><a href="<%=request.getContextPath()%>/Quanlysanpham" > <i class="fa fa-th"></i>
 							<span>Quản lý sản phẩm</span> 
 					</a>
-
 						</li>
-						
-					<li class="treeview"><a href="adminquanlyhoadon.jsp"> <i class="fa fa-th"></i>
+
+					<li class="treeview"><a href="#"> <i class="fa fa-th"></i>
 							<span>Quản lý hóa đơn</span>
 							
 					</a>
 						</li>
 					
-					<li><a href="adminindex.jsp"> <i
+					<li><a href="#"> <i
 							class="fa fa-envelope"></i> <span>Quản lý hộp thư</span> <small
 							class="label pull-right bg-yellow">9</small>
 					</a></li>
 
 
-					<li class="treeview"><a href="adminthongke.jsp"> <i
+					<li class="treeview"><a href="#"> <i
 							class="fa fa-pie-chart"></i> <span>Thống kê</span>
 					</a>
 						</li>

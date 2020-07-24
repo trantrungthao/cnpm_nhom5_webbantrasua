@@ -1,5 +1,3 @@
-<%@page import="java.sql.ResultSet"%>
-<%@page import="model.ConnectToDatabase"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:url value="/admin" var="url"></c:url>
@@ -64,74 +62,53 @@
 
 		<div class="content-wrapper" style="margin-top: 5px;">
 			<section class="content-header">
-				<h3>
-					Quản lý sản phẩm
-				</h3>
-				<div class="row"> 
-			<div class="col-md-12"> 
-						<a href="adminaddSanPham.jsp"><button class="btn btn-success">Thêm tài khoản</button></a>
-				<div class="panel panel-primary"> 
-					<div class="panel-heading"> 
-						<h3 class="panel-title">Danh sách thành viên</h3> 
-						
-					</div> 
-					<div class="panel-body"> <input class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Từ khóa" type="text"> 
-					</div> 
-					
-					<%
-					ConnectToDatabase con = new ConnectToDatabase();
-					ResultSet rs = con.selectData("select * from Sanpham");
-					
-					%>
-					<table class="table table-hover" id="dev-table"> 
-						<thead> 
-							<tr> 
-								<th>STT</th> 
-								<th>Mã SP</th> 
-								<th>Tên SP</th> 
-								<th>Giá giảm</th> 
-								<th>Giá bán</th>
-								<th>Số lượng</th> 
-								<th>Nhà cung cấp</th> 
-								<th>Mã loại</th> 
-								<th>Hình ảnh</th> 
-								<th>Số lượng nhập</th> 
-								<th>Số lượng bán</th> 
-								<th>Xóa</th>
-								<th>Sửa</th>
-							</tr> 
-						</thead> 
-						<tbody>
-						<%int count=0;
-						while(rs.next()){count++;
-						%>
-						
-						<tr> 
-							<td><%=count %></td> 
-							<td><%=rs.getString(1) %></td> 
-							<td><%=rs.getString(2) %></td> 
-							<td><%=rs.getString(3) %></td> 
-							<td><%=rs.getString(4) %></td>
-							<td><%=rs.getString(5) %></td> 
-							<td><%=rs.getString(6) %></td>
-							<td><%=rs.getString(7) %></td> 
-							<td><%=rs.getString(8) %></td> 
-							<td><%=rs.getString(9) %></td> 
-							<td><%=rs.getString(10) %></td> 
-							<td><a href="ThemSuaXoaSP?id=<%=rs.getString(1)%>&chucNang=Xoa"><button class="btn btn-warning">Xóa</button></a></td>
-							<td><a href="admineditSanPham.jsp?id=<%=rs.getString(1)%>&chucNang=Sua"><button class="btn btn-primary">Sửa</button></a></td>
-						</tr> 
-						<%
-						}
-						%>
-						
-					</tbody></table> 
-				</div> 
-			</div> 
-		</div>
+				<h3>Quản lý sản phẩm</h3>
+				<div class="row">
+					<div class="col-md-12">
+						<a href="<%=request.getContextPath()%>/admin/adminthemsanpham.jsp"><button class="btn btn-success">Thêm
+								sản phẩm</button></a> <h1>
+								 </h1>
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title">Danh sách sản phẩm</h3>
+
+							</div>
+							<div class="panel-body">
+								<input class="form-control" id="dev-table-filter"
+									data-action="filter" data-filters="#dev-table"
+									placeholder="Từ khóa" type="text">
+							</div>
+
+							<table class="table table-hover" id="dev-table">
+									<thead>
+										<tr>
+											<th>Mã SP</th>
+											<th>Tên SP</th>
+											<th>Hình ảnh</th>
+											<th>Giá bán</th>
+											<th>Xóa</th>
+											<th>Sửa</th>
+										</tr>
+									</thead>
+									<tbody>
+								<c:forEach items="${sanphamList}" var="sanpham">
+										<tr>
+											<td>${sanpham.masp}</td>
+											<td>${sanpham.tensp}</td>
+											<td>${sanpham.hinhanh}</td>
+											<td>${sanpham.gia}</td>
+											<td><a href=#><button class="btn btn-warning">Xóa</button></a></td>
+											<td><a href=#><button class="btn btn-primary">Sửa</button></a></td>
+										</tr>
+								</c:forEach>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
 			</section>
 		</div>
-		
+
 		<!-- /.content-wrapper -->
 		<footer class="main-footer">
 			<div class="pull-right hidden-xs">
