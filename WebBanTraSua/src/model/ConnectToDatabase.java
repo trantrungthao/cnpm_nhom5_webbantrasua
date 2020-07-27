@@ -2,9 +2,7 @@ package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class ConnectToDatabase {
 	//
@@ -28,16 +26,5 @@ public class ConnectToDatabase {
 		
 		return connection;
 
-	}
-	public  void excuteSql(String sql) throws Exception{
-		Connection connect =getConnectDB();
-		Statement stmt =    connect.createStatement();
-		stmt.executeUpdate(sql);
-	}
-	public ResultSet selectData(String sql) throws Exception{
-		Connection connect =getConnectDB();
-		Statement stmt =    connect.createStatement();
-		ResultSet rs=	stmt.executeQuery(sql);
-		return rs;
 	}
 }

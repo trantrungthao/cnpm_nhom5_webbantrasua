@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:url value="/admin" var="url"></c:url>
+<c:url value="/WebBanTraSua" var="path"></c:url>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +64,7 @@
 						SP:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="masanpham"
-							name="masanpham" placeholder="Nhập mã sản phẩm">
+							name="masanpham" placeholder="Nhập mã sản phẩm" required/>
 					</div>
 				</div>
 				<div class="form-group">
@@ -71,7 +72,7 @@
 						SP:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="tensanpham"
-							name="tensanpham" placeholder="Nhập tên sản phẩm">
+							name="tensanpham" placeholder="Nhập tên sản phẩm" required/>
 					</div>
 				</div>
 				<div class="form-group">
@@ -79,14 +80,14 @@
 						ảnh:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="hinhanh"
-							name="hinhanh" placeholder="Nhập hình ảnh">
+							name="hinhanh" placeholder="Nhập hình ảnh" required/>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="giaban">Giá bán:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="giaban" name="giaban"
-							placeholder="Nhập giá bán">
+							placeholder="Nhập giá bán" required/>
 					</div>
 				</div>
 
@@ -102,9 +103,9 @@
 		</div>
 		<footer class="main-footer">
 			<div class="pull-right hidden-xs">
-				<b>Version</b> 2.3.3
+				<b>Version</b> 1.9.9
 			</div>
-			<strong>Copyright &copy; 2014-2015 <a
+			<strong>Copyright &copy; 2010-2020 <a
 				href="http://facebook.com">AnonKing Studio</a>.
 			</strong> All rights reserved.
 		</footer>

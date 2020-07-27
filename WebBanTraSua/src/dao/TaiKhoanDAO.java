@@ -9,10 +9,10 @@ import java.util.Map;
 import model.ConnectToDatabase;
 import model.TaiKhoan;
 
-public class KhachHangDAO{
+public class TaiKhoanDAO{
 	public Map<String, TaiKhoan> mapTaiKhoan = loadData();
 
-	public KhachHangDAO() {
+	public TaiKhoanDAO() {
 		
 	}
 	public Map<String, TaiKhoan> loadData(){
@@ -74,7 +74,7 @@ public class KhachHangDAO{
 			
 			
 			public static void main(String[] args) {
-				KhachHangDAO khDAO = new KhachHangDAO();
+				TaiKhoanDAO khDAO = new TaiKhoanDAO();
 				System.out.println(khDAO.checkLogin("admin", "123456"));
 
 			}

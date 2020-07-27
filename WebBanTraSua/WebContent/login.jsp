@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V1</title>
+	<title>Đăng nhập</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -37,20 +37,15 @@
 						ĐĂNG NHẬP
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input">
+						<!-- Kiểm tra trường dữ liệu không để trống và nhận vào userName-->
 						<input class="input100" type="text" name="username" placeholder="Tên đăng nhập" required/>
-<!--						<span class="focus-input100"></span>-->
-<!--						<span class="symbol-input100">-->
-<!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
-<!--						</span>-->
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" placeholder="Mật khẩu" required/>
-<!--						<span class="focus-input100"></span>-->
-<!--						<span class="symbol-input100">-->
-<!--							<i class="fa fa-lock" aria-hidden="true"></i>-->
-<!--						</span>-->
+					<div class="wrap-input100 validate-input" >
+						<!--Kiểm tra password đủ 6 kí tự trở lên và nhận vào password-->
+						<input class="input100" type="password" name="password" placeholder="Mật khẩu" pattern=".{6,}"
+              title="6 kí tự trở lên" required/>
 					</div>
 					
 					<div class="container-login100-form-btn">
@@ -58,6 +53,7 @@
 							Đăng nhập
 						</button>
 					</div>
+					<!--Hiện thông báo đăng nhập không thành công-->
 					<p>${error}</p>	
 					<div class="text-center p-t-12">
 						<span class="txt1">
@@ -67,9 +63,8 @@
 							Tên đăng nhập / Mật khẩu?
 						</a>
 					</div>
-
 					<div class="text-center p-t-136">
-						<a class="txt2" href="register.html">
+						<a class="txt2" href="khachhang/register.html">
 							Đăng kí tài khoản
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>

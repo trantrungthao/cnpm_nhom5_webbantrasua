@@ -112,9 +112,9 @@
 		<!-- /.content-wrapper -->
 		<footer class="main-footer">
 			<div class="pull-right hidden-xs">
-				<b>Version</b> 2.3.3
+				<b>Version</b> 1.9.9
 			</div>
-			<strong>Copyright &copy; 2014-2015 <a
+			<strong>Copyright &copy; 2010-2020 <a
 				href="http://facebook.com">AnonKing Studio</a>.
 			</strong> All rights reserved.
 		</footer>
