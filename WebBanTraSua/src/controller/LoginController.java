@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.KhachHangDAO;
+import dao.TaiKhoanDAO;
 import model.TaiKhoan;
 
 
@@ -27,9 +27,12 @@ public class LoginController extends HttpServlet {
 		String userName = req.getParameter("username");
 		String passWord = req.getParameter("password");
 		
-		KhachHangDAO kh = new KhachHangDAO();
+		TaiKhoanDAO kh = new TaiKhoanDAO();
 		Map<String, TaiKhoan> listTK = kh.loadData();
 		if (kh.checkLogin(userName, passWord)&&kh.checkAdmin(userName, "admin")) {
+			HttpSession session = req.getSession();
+			TaiKhoan tk = listTK.get(userName);
+			session.setAttribute("user", tk);
 			res.sendRedirect(req.getContextPath() + "/admin/adminindex.jsp");
 		} else {
 			if (kh.checkLogin(userName, passWord)) {
