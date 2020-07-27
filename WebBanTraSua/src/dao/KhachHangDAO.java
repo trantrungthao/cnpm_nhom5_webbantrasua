@@ -9,13 +9,13 @@ import java.util.Map;
 import model.ConnectToDatabase;
 import model.TaiKhoan;
 
-public class KhachHangDAO {
-	public static Map<String, TaiKhoan> mapTaiKhoan = loadData();
+public class KhachHangDAO{
+	public Map<String, TaiKhoan> mapTaiKhoan = loadData();
 
 	public KhachHangDAO() {
 		
 	}
-	private static Map<String, TaiKhoan> loadData(){
+	public Map<String, TaiKhoan> loadData(){
 		//
 		Map<String, TaiKhoan> listTK = new HashMap<>();
 		try {
@@ -41,6 +41,20 @@ public class KhachHangDAO {
 		return listTK;
 		
 		
+	}
+	//checkAdmin
+	public boolean checkAdmin(String userName, String role) {
+		TaiKhoan tk = mapTaiKhoan.get(userName);
+		//nếu tk có trong map
+		if(tk!=null) {
+			if(tk.getRole().equals(role)) {
+				return true;
+			}else {
+				return false;
+			}
+		}else {
+		return false;
+		}
 	}
 	
 	//checkLogin

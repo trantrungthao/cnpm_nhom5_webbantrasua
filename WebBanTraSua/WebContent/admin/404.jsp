@@ -25,7 +25,7 @@
 			<div class="four">
 				<h2>Page Not Found | 404 ERROR</h2>
 				<p>This page could not be found on the server</p>
-					<a href="adminindex.jsp" class="more ">Go back</a>
+					<a href="index.jsp" class="more ">Go back</a>
 				
 			</div>
 

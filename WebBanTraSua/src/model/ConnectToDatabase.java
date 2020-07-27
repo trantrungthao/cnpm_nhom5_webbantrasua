@@ -13,7 +13,7 @@ public class ConnectToDatabase {
 		try {
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			String url = "jdbc:mysql://127.0.0.1:3306/webbantrasua";
+			String url = "jdbc:mysql://127.0.0.1:3306/webbantrasua?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&characterEncoding=UTF-8";
 			try {
 				connection = DriverManager.getConnection(url, "root", "1234");
 

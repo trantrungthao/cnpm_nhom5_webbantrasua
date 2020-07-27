@@ -10,7 +10,7 @@ import java.util.List;
 import model.ConnectToDatabase;
 import model.SanPham;
 
-public class SanPhamDAO implements ObjectDAO{
+public class SanPhamDAO{
 
 	public SanPhamDAO() {
 
@@ -41,7 +41,6 @@ public class SanPhamDAO implements ObjectDAO{
 		return sanPham;
 	}
 	// Thêm sản phẩm
-	@Override
 	public boolean insert(SanPham sanpham) {
 		Connection connection = new ConnectToDatabase().getConnectDB();
 		String sql = "Insert into sanpham(masp, tensp, hinhanh, gia) values ('"+sanpham.getMasp()+"','" +sanpham.getTensp() +"','" +sanpham.getHinhanh() +"','" +sanpham.getGia() +"') ";
@@ -57,14 +56,12 @@ public class SanPhamDAO implements ObjectDAO{
 	}
 	
 	// Sửa sản phẩm
-	@Override
 	public boolean edit(SanPham sanpham) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 	
 	// Xóa sản phẩm
-	@Override
 	public boolean delete(String masp) {
 		// TODO Auto-generated method stub
 		return false;

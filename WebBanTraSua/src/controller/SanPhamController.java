@@ -33,7 +33,9 @@ public class SanPhamController extends HttpServlet {
 	// Phương thức này sẽ được gọi.
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html; charset=UTF-8");
 		String masp = req.getParameter("masanpham");
 		String tensp = req.getParameter("tensanpham");
 		String hinhanh = req.getParameter("hinhanh");

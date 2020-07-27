@@ -34,11 +34,11 @@
 
 				<form action="<%=request.getContextPath()%>/dangnhap" method="POST" class="login100-form validate-form">
 					<span class="login100-form-title">
-						Đăng nhập
+						ĐĂNG NHẬP
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="username" placeholder="TÃÂªn ÃÂÃÂng nhÃ¡ÂºÂ­p">
+						<input class="input100" type="text" name="username" placeholder="Tên đăng nhập" required/>
 <!--						<span class="focus-input100"></span>-->
 <!--						<span class="symbol-input100">-->
 <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
@@ -46,7 +46,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" placeholder="MÃ¡ÂºÂ­t khÃ¡ÂºÂ©u">
+						<input class="input100" type="password" name="password" placeholder="Mật khẩu" required/>
 <!--						<span class="focus-input100"></span>-->
 <!--						<span class="symbol-input100">-->
 <!--							<i class="fa fa-lock" aria-hidden="true"></i>-->
@@ -55,22 +55,22 @@
 					
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
-							ÄÄng Nháº­p
+							Đăng nhập
 						</button>
 					</div>
 					<p>${error}</p>	
 					<div class="text-center p-t-12">
 						<span class="txt1">
-							QuÃÂªn
+							Quên
 						</span>
 						<a class="txt2" href="#">
-							TÃÂªn ÃÂÃÂng nhÃ¡ÂºÂ­p / MÃ¡ÂºÂ­t khÃ¡ÂºÂ©u?
+							Tên đăng nhập / Mật khẩu?
 						</a>
 					</div>
 
 					<div class="text-center p-t-136">
 						<a class="txt2" href="register.html">
-							ÃÂÃÂng kÃÂ½ tÃÂ i khoÃ¡ÂºÂ£n
+							Đăng kí tài khoản
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>

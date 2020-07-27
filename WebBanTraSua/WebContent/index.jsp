@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@page import="model.TaiKhoan"%>
+<%TaiKhoan tk = (TaiKhoan)session.getAttribute("user"); %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -7,7 +11,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>TooCha | Template</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -33,7 +37,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
+            <a href="#"><img src="khachhang/img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -58,8 +62,8 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">Trang chủ</a></li>
-                <li><a href="./shop-grid.html">Sản phẩm</a></li>
+                <li class="active"><a href="index.jsp">Trang chủ</a></li>
+                <li><a href="#">Sản phẩm</a></li>
                 <li><a href="#">About us</a>
 <!--                    <ul class="header__menu__dropdown">-->
 <!--                        <li><a href="./shop-details.html">Shop Details</a></li>-->
@@ -68,7 +72,7 @@
 <!--                        <li><a href="./blog-details.html">Blog Details</a></li>-->
 <!--                    </ul>-->
                 </li>
-                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="#">Blog</a></li>
 <!--                <li><a href="./contact.html">Contact</a></li>-->
             </ul>
         </nav>
@@ -104,13 +108,13 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="https://www.facebook.com/toochavn/"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
 <!--                                <a href="#"><i class="fa fa-linkedin"></i></a>-->
 <!--                                <a href="#"><i class="fa fa-pinterest-p"></i></a>-->
                             </div>
 <!--                            <div class="header__top__right__language">-->
-<!--                                <img src="img/language.png" alt="">-->
+<!--                                <img src="khachhang/img/language.png" alt="">-->
 <!--                                <div>English</div>-->
 <!--                                <span class="arrow_carrot-down"></span>-->
 <!--                                <ul>-->
@@ -119,7 +123,8 @@
 <!--                                </ul>-->
 <!--                            </div>-->
                             <div class="header__top__right__auth">
-                                <a href="login.html"><i class="fa fa-user"></i> Đăng nhập</a>
+                                <a href="login.jsp"><i class="fa fa-user"></i><%if(tk!=null){ out.print(tk.getTendangnhap());}else out.print("Đăng nhập");%></a>
+               
                             </div>
                         </div>
                     </div>
@@ -130,24 +135,24 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/ts/logo.jpg" alt="" width="102" height="35"></a>
+                        <a href="./index.html"><img src="khachhang/img/ts/logo.jpg" alt="" width="102" height="35"></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.html" style="font-family: Arial, serif" >Trang chủ</a></li>
-                            <li><a href="./shop-grid.html" style="font-family: Arial, sans-serif" >Sản phẩm</a></li>
+                            <li class="active"><a href="index.jsp" style="font-family: Arial, serif" >Trang chủ</a></li>
+                            <li><a href="#" style="font-family: Arial, sans-serif" >Sản phẩm</a></li>
                             <li><a href="#" style="font-family: Arial, sans-serif" >About us</a>
 <!--                                <ul class="header__menu__dropdown">-->
-<!--                                    <li><a href="./shop-details.html">Shop Details</a></li>-->
-<!--                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>-->
-<!--                                    <li><a href="./checkout.html">Check Out</a></li>-->
-<!--                                    <li><a href="./blog-details.html">Blog Details</a></li>-->
+<!--                                    <li><a href="#">Shop Details</a></li>-->
+<!--                                    <li><a href="#">Shoping Cart</a></li>-->
+<!--                                    <li><a href="#">Check Out</a></li>-->
+<!--                                    <li><a href="#">Blog Details</a></li>-->
 <!--                                </ul>-->
                             </li>
-                            <li><a href="./blog.html" style="font-family: Arial, serif" >Blog</a></li>
-<!--                            <li><a href="./contact.html">Contact</a></li>-->
+                            <li><a href="#" style="font-family: Arial, serif" >Blog</a></li>
+<!--                            <li><a href="#">Contact</a></li>-->
                         </ul>
                     </nav>
                 </div>
@@ -201,8 +206,8 @@
 <!--                                    All Categories-->
 <!--                                    <span class="arrow_carrot-down"></span>-->
 <!--                                </div>-->
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" placeholder="Trà sữa trân châu">
+                                <button type="submit" class="site-btn">Tìm kiếm</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -215,7 +220,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="img/ts/bg.jpg">
+                    <div class="hero__item set-bg" data-setbg="khachhang/img/ts/bg.jpg">
                         <div class="hero__text">
 <!--                            <span>FRUIT FRESH</span>-->
 <!--                            <h2>Vegetable <br />100% Organic</h2>-->
@@ -701,10 +706,10 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/ts/logo.jpg" alt="" width="102" height="35"></a>
+                            <a href="./index.html"><img src="khachhang/img/ts/logo.jpg" alt="" width="102" height="35"></a>
                         </div>
                         <ul>
-                            <li>Địa chỉ: Đường Dân Chủ, Quận Thủ Đức, TP.HCM</li>
+                            <li>Địa chỉ: Đại học Nông Lâm, TP.HCM</li>
                             <li>Phone: +65 11.188.888</li>
                             <li>Email: milktea@toocha.com</li>
                         </ul>
@@ -726,10 +731,10 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
                         <h6>Tham gia nhận bản tin</h6>
-                        <p>Nhận email về món mới và các ưu đãi đặc biệt.</p>
+                        <p>Nhận email về các món mới và các ưu đãi.</p>
                         <form action="#">
                             <input type="text" placeholder="Hãy để lại email">
-                            <button type="submit" class="site-btn">Đăng ký</button>
+                            <button type="submit" class="site-btn">Đăng kí</button>
                         </form>
                         <div class="footer__widget__social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
