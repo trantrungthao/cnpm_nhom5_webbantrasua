@@ -36,20 +36,28 @@ public class SanPhamController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html; charset=UTF-8");
+		// Lấy dữ liệu từ trang jsp
 		String masp = req.getParameter("masanpham");
 		String tensp = req.getParameter("tensanpham");
 		String hinhanh = req.getParameter("hinhanh");
 		double gia = Double.parseDouble(req.getParameter("giaban"));
+		// Kiểm tra mã sản phẩm
 		if(masp!=null) {
 		try {
+			// Nếu mã sản phẩm không tồn tại
 			if (checkMasp(masp)) {
 				SanPham SP = new SanPham(masp, tensp, hinhanh, gia);
 				SanPhamDAO SPD = new SanPhamDAO();
+				// Thêm sản phẩm vào database
 				SPD.insert(SP);
+				// Trả về trang quản lý sản phẩm
 				res.sendRedirect(req.getContextPath() + "/Quanlysanpham");
 			} else {
+				// Nếu mã sản phẩm tồn tại
 				String er = "Mã sản phẩm đã tồn tại";
+				// Thông báo
 				req.setAttribute("Error", er);
+				// Trả về trang thêm sản phẩm
 				req.getRequestDispatcher(req.getContextPath() + "/admin/adminthemsanpham.jsp").forward(req, res);
 			}
 		} catch (SQLException e) {
@@ -59,7 +67,7 @@ public class SanPhamController extends HttpServlet {
 	}
 	}
 
-	//
+	// Kiểm tra mã sản phẩm tồn tại hay chưa
 	private boolean checkMasp(String masp) throws SQLException {
 		SanPhamDAO SPD = new SanPhamDAO();
 		List<SanPham> sanpham = SPD.listSP();

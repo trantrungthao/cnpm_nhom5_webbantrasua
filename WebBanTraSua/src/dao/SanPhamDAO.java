@@ -15,7 +15,7 @@ public class SanPhamDAO{
 	public SanPhamDAO() {
 
 	}
-
+	// Lấy danh sách sản phẩm từ Database
 	public List<SanPham> listSP() throws SQLException {
 		List<SanPham> sanPham = new ArrayList<SanPham>();
 
