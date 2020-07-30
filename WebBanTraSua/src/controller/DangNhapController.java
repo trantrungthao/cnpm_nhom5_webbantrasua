@@ -15,10 +15,10 @@ import model.TaiKhoan;
 
 
 @WebServlet(urlPatterns = { "/dangnhap" })
-public class LoginController extends HttpServlet {
+public class DangNhapController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public LoginController() {
+	public DangNhapController() {
 		super();
 	}
 
