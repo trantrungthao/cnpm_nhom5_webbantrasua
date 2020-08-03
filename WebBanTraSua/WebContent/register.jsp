@@ -32,39 +32,42 @@
                 <img src="khachhang\img\ts\logodk.png" alt="IMG">
             </div>
 
-            <form class="login100-form validate-form">
+            <form action="<%=request.getContextPath()%>/dangky" method="POST" class="login100-form validate-form">
 					<span class="login100-form-title">
 						ĐĂNG KÝ
 					</span>
-
+					
+					<%String tendangnhap=request.getParameter("tendangnhap");%>
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="email" placeholder="Tên đăng nhập">
+                    <input class="input100" type="text" name="tendangnhap" value="<%=tendangnhap%>" placeholder="Tên đăng nhập">
                     <!--						<span class="focus-input100"></span>-->
                     <!--						<span class="symbol-input100">-->
                     <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
                     <!--						</span>-->
                 </div>
+                	<%String email=request.getParameter("email");%>
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="email" placeholder="Email">
+                    <input class="input100" type="text" name="email" value="<%=email%> placeholder="Email">
                     <!--						<span class="focus-input100"></span>-->
                     <!--						<span class="symbol-input100">-->
                     <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
                     <!--						</span>-->
                 </div>
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input class="input100" type="password" name="pass" placeholder="Mật khẩu">
+                    <input class="input100" type="password" name="matkhau" placeholder="Mật khẩu">
                     <!--						<span class="focus-input100"></span>-->
                     <!--						<span class="symbol-input100">-->
                     <!--							<i class="fa fa-lock" aria-hidden="true"></i>-->
                     <!--						</span>-->
                 </div>
-                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="email" placeholder="Nhập lại mật khẩu">
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input class="input100" type="password" name="nhaplaimk" placeholder="Nhập lại mật khẩu">
                     <!--						<span class="focus-input100"></span>-->
                     <!--						<span class="symbol-input100">-->
                     <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
                     <!--						</span>-->
                 </div>
+                <a>${error}</a>
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn">
                         Đăng ký

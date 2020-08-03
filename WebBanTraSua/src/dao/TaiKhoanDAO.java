@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -71,12 +72,26 @@ public class TaiKhoanDAO{
 				return false;
 				}
 			}
-			
-			
-			public static void main(String[] args) {
-				TaiKhoanDAO khDAO = new TaiKhoanDAO();
-				System.out.println(khDAO.checkLogin("admin", "123456"));
-
+			//ktTaikhoan
+			public boolean ktTaikhoan(String userName, String email) {
+				TaiKhoan tk = mapTaiKhoan.get(userName);
+				if(tk.getEmail().equals(email)){
+					return false;
+				}
+				return true;
+			}
+			//themTaikhoan
+			public void themTaikhoan (TaiKhoan tk) {
+				Connection connection = new ConnectToDatabase().getConnectDB();
+				String sql = "Insert into taikhoan(tendangnhap, matkhau, email) values ('"+tk.getTendangnhap()+"','" +tk.getMatkhau() +"','" +tk.getEmail() +"') ";
+				try {
+					PreparedStatement ps = connection.prepareStatement(sql);
+					ps.executeUpdate(sql);
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 }
 
