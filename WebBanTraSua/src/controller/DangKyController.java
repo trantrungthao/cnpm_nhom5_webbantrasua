@@ -31,11 +31,11 @@ public class DangKyController extends HttpServlet {
 		String email = req.getParameter("email");
 		String matkhau = req.getParameter("matkhau");
 		String nhaplaimk = req.getParameter("nhaplaimk");
-		if(matkhau != nhaplaimk) {
+		if(matkhau.equals(nhaplaimk)) {
+			res.sendRedirect(req.getContextPath() +"/index.jsp");
+		} else {
 			req.setAttribute("error", "Mật khẩu không trùng khớp");
 			req.getRequestDispatcher("register.jsp").forward(req, res);
-		} else {
-			
 		}
 		
 		}

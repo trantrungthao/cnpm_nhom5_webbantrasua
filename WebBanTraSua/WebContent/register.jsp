@@ -47,21 +47,23 @@
                 </div>
                 	<%String email=request.getParameter("email");%>
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="email" value="<%=email%> placeholder="Email">
+                    <input class="input100" type="text" name="email" value=<%=email%> placeholder="email ">
                     <!--						<span class="focus-input100"></span>-->
                     <!--						<span class="symbol-input100">-->
                     <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
                     <!--						</span>-->
                 </div>
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input class="input100" type="password" name="matkhau" placeholder="Mật khẩu">
+                    <input class="input100" type="password" name="matkhau" placeholder="Mật khẩu" pattern=".{6,}"
+              title="6 kí tự trở lên" required/>
                     <!--						<span class="focus-input100"></span>-->
                     <!--						<span class="symbol-input100">-->
                     <!--							<i class="fa fa-lock" aria-hidden="true"></i>-->
                     <!--						</span>-->
                 </div>
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input class="input100" type="password" name="nhaplaimk" placeholder="Nhập lại mật khẩu">
+                    <input class="input100" type="password" name="nhaplaimk" placeholder="Nhập lại mật khẩu" pattern=".{6,}"
+              title="6 kí tự trở lên" required/>
                     <!--						<span class="focus-input100"></span>-->
                     <!--						<span class="symbol-input100">-->
                     <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->

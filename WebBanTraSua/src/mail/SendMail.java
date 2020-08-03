@@ -12,38 +12,36 @@ import javax.mail.internet.MimeMessage;
 
 public class SendMail {
 	public static boolean sendMail(String to, String subject, String text) {
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
-        Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("trantrungthao@gmail.com", "12345678");
-            }
-        });
-        try {
-            Message message = new MimeMessage(session);
-            message.setHeader("Content-Type", "text/plain; charset=UTF-8");
-            message.setFrom(new InternetAddress("trantrungthao@gmail.com"));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-            message.setSubject(subject);
-            message.setText(text);
-            Transport.send(message);
-        } catch (MessagingException e) {
-            return false;
-        }
-        
-        return true;
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+			@Override
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication("trungthaoweb@gmail.com", "123456789adf");
+			}
+		});
+		try {
+			Message message = new MimeMessage(session);
+			message.setHeader("Content-Type", "text/plain; charset=UTF-8");
+			message.setFrom(new InternetAddress("trungthaoweb@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+			message.setSubject(subject);
+			message.setText(text);
+			Transport.send(message);
+		} catch (MessagingException e) {
+			return false;
+		}
+		return true;
 
 	}
 	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		SendMail mail = new SendMail();
-		mail.sendMail("17130218@st.hcmuaf.edu.vn", "Data Warehouse", "file error");
 		
+		System.out.println(mail.sendMail("17130033@st.hcmuaf.edu.vn", "Trà Sửa Online", "Mã: 123456"));
 		
 	}
 }
