@@ -41,8 +41,6 @@ public class SanPhamController extends HttpServlet {
 		String tensp = req.getParameter("tensanpham");
 		String hinhanh = req.getParameter("hinhanh");
 		double gia = Double.parseDouble(req.getParameter("giaban"));
-		// Kiểm tra mã sản phẩm
-		if(masp!=null) {
 		try {
 			// Nếu mã sản phẩm không tồn tại
 			if (checkMasp(masp)) {
@@ -64,7 +62,6 @@ public class SanPhamController extends HttpServlet {
 			e.printStackTrace();
 
 		}
-	}
 	}
 
 	// Kiểm tra mã sản phẩm tồn tại hay chưa

@@ -1,0 +1,115 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Đăng kí</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="khachhang/images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="khachhang/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="khachhang/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="khachhang/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="khachhang/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="khachhang/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="khachhang/css/util.css">
+    <link rel="stylesheet" type="text/css" href="khachhang/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="khachhang\img\ts\logodk.png" alt="IMG">
+            </div>
+
+            <form class="login100-form validate-form">
+					<span class="login100-form-title">
+						ĐĂNG KÝ
+					</span>
+
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input class="input100" type="text" name="email" placeholder="Tên đăng nhập">
+                    <!--						<span class="focus-input100"></span>-->
+                    <!--						<span class="symbol-input100">-->
+                    <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
+                    <!--						</span>-->
+                </div>
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input class="input100" type="text" name="email" placeholder="Email">
+                    <!--						<span class="focus-input100"></span>-->
+                    <!--						<span class="symbol-input100">-->
+                    <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
+                    <!--						</span>-->
+                </div>
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input class="input100" type="password" name="pass" placeholder="Mật khẩu">
+                    <!--						<span class="focus-input100"></span>-->
+                    <!--						<span class="symbol-input100">-->
+                    <!--							<i class="fa fa-lock" aria-hidden="true"></i>-->
+                    <!--						</span>-->
+                </div>
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input class="input100" type="text" name="email" placeholder="Nhập lại mật khẩu">
+                    <!--						<span class="focus-input100"></span>-->
+                    <!--						<span class="symbol-input100">-->
+                    <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
+                    <!--						</span>-->
+                </div>
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        Đăng ký
+                    </button>
+                </div>
+
+<!--                <div class="text-center p-t-12">-->
+<!--						<span class="txt1">-->
+<!--							Quên-->
+<!--						</span>-->
+<!--                    <a class="txt2" href="#">-->
+<!--                        Tên đăng nhập / Mật khẩu?-->
+<!--                    </a>-->
+<!--                </div>-->
+
+                <div class="text-center p-t-120">
+<!--                    <a class="txt2" href="#">-->
+<!--                        Đăng ký tài khoản-->
+<!--                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>-->
+<!--                    </a>-->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--===============================================================================================-->
+<script src="khachhang/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="khachhang/vendor/bootstrap/js/popper.js"></script>
+<script src="khachhang/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="khachhang/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="khachhang/vendor/tilt/tilt.jquery.min.js"></script>
+<script >
+    $('.js-tilt').tilt({
+        scale: 1.1
+    })
+</script>
+<!--===============================================================================================-->
+<script src="khachhang/js/main.js"></script>
+
+</body>
+</html>
