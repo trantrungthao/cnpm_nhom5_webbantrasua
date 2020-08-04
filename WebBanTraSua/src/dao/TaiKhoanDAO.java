@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import model.ConnectToDatabase;
 import model.TaiKhoan;
@@ -72,18 +74,36 @@ public class TaiKhoanDAO{
 				return false;
 				}
 			}
-			//ktTaikhoan
-			public boolean ktTaikhoan(String userName, String email) {
-				TaiKhoan tk = mapTaiKhoan.get(userName);
-				if(tk.getEmail().equals(email)){
+			//ktEmail
+//			public boolean ktEmail(String email) {
+//				TaiKhoan tk = mapTaiKhoan.get(email);
+//				if(!tk.getEmail().equals(email)){
+//					return true;
+//				}
+//				return false;
+//			}
+			
+//			//ktUsername
+//			public boolean ktTendn(String tendangnhap) {
+//				TaiKhoan tk = mapTaiKhoan.get(tendangnhap);
+//				if(!tk.getTendangnhap().equals(tendangnhap)){
+//					return true;
+//				}
+//				return false;
+//			}
+			//Kiem tra ten dang nhap da ton tai
+			public boolean ktTK(String userName) {
+				if(mapTaiKhoan.containsKey(userName)) {
 					return false;
+				}else {
+					return true;
 				}
-				return true;
+				
 			}
 			//themTaikhoan
-			public void themTaikhoan (TaiKhoan tk) {
+			public void themTaikhoan(TaiKhoan tk) {
 				Connection connection = new ConnectToDatabase().getConnectDB();
-				String sql = "Insert into taikhoan(tendangnhap, matkhau, email) values ('"+tk.getTendangnhap()+"','" +tk.getMatkhau() +"','" +tk.getEmail() +"') ";
+				String sql = "Insert into taikhoan(tendangnhap, matkhau, hovaten, email, sdt, role) values ('"+tk.getTendangnhap()+"','" +tk.getMatkhau() +"','" +tk.getHovaten() +"','" +tk.getEmail() + "','" +tk.getSdt() +"','" +tk.getRole() +"') ";
 				try {
 					PreparedStatement ps = connection.prepareStatement(sql);
 					ps.executeUpdate(sql);
@@ -93,5 +113,19 @@ public class TaiKhoanDAO{
 					e.printStackTrace();
 				}
 			}
+//		    public boolean kiemTraTaiKhoan(String userName) {
+//		        String sql = "SELECT * FROM taikhoan WHERE tendangnhap= '" + userName + "'";
+//		        try {
+//		        	Connection connection = new ConnectToDatabase().getConnectDB();
+//		            PreparedStatement ps = connection.prepareStatement(sql);
+//		            ResultSet rs = ps.executeQuery();
+//		            while (rs.next()) {
+//		                return true;
+//		            }
+//		            connection.close();
+//		        } catch (SQLException ex) {
+//		            Logger.getLogger(TaiKhoanDAO.class.getName()).log(Level.SEVERE, null, ex);
+//		        }
+//		        return false;
+//		    }
 }
-

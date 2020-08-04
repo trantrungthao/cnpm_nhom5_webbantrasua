@@ -32,43 +32,61 @@
                 <img src="khachhang\img\ts\logodk.png" alt="IMG">
             </div>
 
-            <form action="<%=request.getContextPath()%>/dangky" method="POST" class="login100-form validate-form">
+            <form action="<%=request.getContextPath()%>/dangky?action=dangky" method="POST" class="login100-form validate-form">
 					<span class="login100-form-title">
 						ĐĂNG KÝ
 					</span>
 					
-					<%String tendangnhap=request.getParameter("tendangnhap");%>
+					<%String tendangnhap=request.getParameter("tendangnhap");
+					if (tendangnhap == null) {
+						tendangnhap = "";
+						}%>
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="tendangnhap" value="<%=tendangnhap%>" placeholder="Tên đăng nhập">
+                    <input class="input100" type="text" name="tendangnhap" value="<%=tendangnhap%>" placeholder="Tên đăng nhập"
+                    pattern="^([a-z0-9]){1,12}$" title="VD: trasua, trasua123" required/>
                     <!--						<span class="focus-input100"></span>-->
                     <!--						<span class="symbol-input100">-->
                     <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
                     <!--						</span>-->
                 </div>
-                	<%String email=request.getParameter("email");%>
+                	<%String email=request.getParameter("email");
+                	if (email == null) {
+						email = "";
+						}%>
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="email" value=<%=email%> placeholder="email ">
+                    <input class="input100" type="text" name="email" value="<%=email%>" placeholder="Email"
+                    pattern="^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+\.[A-Za-z]{2,6}$" title="VD: trasua@gmail.com" required/>
                     <!--						<span class="focus-input100"></span>-->
                     <!--						<span class="symbol-input100">-->
                     <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
                     <!--						</span>-->
                 </div>
+                	<%String matkhau=request.getParameter("matkhau");
+                	if (matkhau == null) {
+                		matkhau = "";
+						}%>
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input class="input100" type="password" name="matkhau" placeholder="Mật khẩu" pattern=".{6,}"
+                    <input class="input100" type="password" name="matkhau" value="<%=matkhau%>" placeholder="Mật khẩu" pattern=".{6,}"
               title="6 kí tự trở lên" required/>
                     <!--						<span class="focus-input100"></span>-->
                     <!--						<span class="symbol-input100">-->
                     <!--							<i class="fa fa-lock" aria-hidden="true"></i>-->
                     <!--						</span>-->
                 </div>
+                <%String nhaplaimk=request.getParameter("nhaplaimk");
+                	if (nhaplaimk == null) {
+                		nhaplaimk = "";
+						}%>
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input class="input100" type="password" name="nhaplaimk" placeholder="Nhập lại mật khẩu" pattern=".{6,}"
+                    <input class="input100" type="password" name="nhaplaimk" value="<%=nhaplaimk%>" placeholder="Nhập lại mật khẩu" pattern=".{6,}"
               title="6 kí tự trở lên" required/>
                     <!--						<span class="focus-input100"></span>-->
                     <!--						<span class="symbol-input100">-->
                     <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
                     <!--						</span>-->
                 </div>
+                <span>${maxn}</span>
+                <a>${tb}</a>
                 <a>${error}</a>
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn">

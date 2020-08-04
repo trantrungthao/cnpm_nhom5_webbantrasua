@@ -4,8 +4,9 @@ public class TaiKhoan {
 	private String tendangnhap;
 	private String matkhau;
 	private String hovaten;
-	private String sdt;
 	private String email;
+	private String sdt;
+	
 	private String role;
 	public TaiKhoan(String tendangnhap, String matkhau, String hovaten, String sdt, String email, String role) {
 		this.tendangnhap = tendangnhap;

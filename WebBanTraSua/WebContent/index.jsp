@@ -96,7 +96,9 @@
                             <div class="header__top__right__auth">
                             	<!-- Xử lý đăng nhập-->
                                 <a href="khachhang/info.html"><%if(tk!=null){ out.print(tk.getTendangnhap());}%></a>
-               					<a href="login.jsp"><% if(tk==null){ out.print("Đăng nhập");}%></a>
+               					<a href="login.jsp" style="float: left"><% if(tk==null){ out.print("Đăng nhập ");}%></a>
+               					<!-- <a style="float: left; margin-left: 2px"> <span> | </span> </a> -->
+               					<a href="register.jsp" style="float: left; padding-left: 2px"><% if(tk==null){ out.print(" Đăng ký");}%></a>
                             </div>
                         </div>
                     </div>
