@@ -6,14 +6,13 @@ public class TaiKhoan {
 	private String hovaten;
 	private String email;
 	private String sdt;
-	
 	private String role;
-	public TaiKhoan(String tendangnhap, String matkhau, String hovaten, String sdt, String email, String role) {
+	public TaiKhoan(String tendangnhap, String matkhau, String hovaten, String email, String sdt,  String role) {
 		this.tendangnhap = tendangnhap;
 		this.matkhau = matkhau;
 		this.hovaten = hovaten;
-		this.sdt = sdt;
 		this.email = email;
+		this.sdt = sdt;
 		this.role = role;
 	}
 	public String getTendangnhap() {

@@ -37,6 +37,7 @@ public class SendMail {
 		return true;
 
 	}
+	
 	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		SendMail mail = new SendMail();

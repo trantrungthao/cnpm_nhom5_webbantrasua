@@ -103,7 +103,7 @@ public class TaiKhoanDAO{
 			//themTaikhoan
 			public void themTaikhoan(TaiKhoan tk) {
 				Connection connection = new ConnectToDatabase().getConnectDB();
-				String sql = "Insert into taikhoan(tendangnhap, matkhau, hovaten, email, sdt, role) values ('"+tk.getTendangnhap()+"','" +tk.getMatkhau() +"','" +tk.getHovaten() +"','" +tk.getEmail() + "','" +tk.getSdt() +"','" +tk.getRole() +"') ";
+				String sql = "Insert into taikhoan(tendangnhap, matkhau, email) values ('"+tk.getTendangnhap()+"','" +tk.getMatkhau() +"','" +tk.getEmail() +"') ";
 				try {
 					PreparedStatement ps = connection.prepareStatement(sql);
 					ps.executeUpdate(sql);

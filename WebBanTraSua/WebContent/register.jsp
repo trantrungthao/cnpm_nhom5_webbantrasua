@@ -31,8 +31,9 @@
             <div class="login100-pic js-tilt" data-tilt>
                 <img src="khachhang\img\ts\logodk.png" alt="IMG">
             </div>
-
-            <form action="<%=request.getContextPath()%>/dangky?action=dangky" method="POST" class="login100-form validate-form">
+            
+          <form action="<%=request.getContextPath()%>/dangky?action=dangky" method="POST" class="login100-form validate-form"> 
+         
 					<span class="login100-form-title">
 						ĐĂNG KÝ
 					</span>
@@ -86,7 +87,6 @@
                     <!--						</span>-->
                 </div>
                 <span>${maxn}</span>
-                <a>${tb}</a>
                 <a>${error}</a>
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn">

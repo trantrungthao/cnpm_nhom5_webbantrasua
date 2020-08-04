@@ -50,7 +50,7 @@ public class DangKyController extends HttpServlet {
 		if(action.equals("dangky")) {
 		if(tkD.ktTK(tendangnhap)) {
 			if(matkhau.equals(nhaplaimk)) {
-				mail.sendMail(email, "Trà Sữa Online", givenUsingJava8_whenGeneratingRandomAlphanumericString_thenCorrect());
+				mail.sendMail(email, "Trà Sữa Online", maXN());
 				String inputma = "<input class=\"input100\" type=\"text\" name=\"maxn\"placeholder=\"Mã xác nhận\"  title=\"Vui lòng kiểm tra email để lấy mã xác nhận\"></input>";
 				req.setAttribute("maxn", inputma);
 				req.setAttribute("tb", "Hãy kiểm tra email để lấy mã xác nhận");
@@ -71,16 +71,8 @@ public class DangKyController extends HttpServlet {
 			tkD.themTaikhoan(tk);
 		}
 
-		}
-//	private String Random() {
-//		Random rd = new Random();
-//		int[] nums = new int[10];
-//		 for (int i = 0; i < nums.length; ++i){
-//	            nums[i] = rd.nextInt(10);
-//	        }
-//		return null;
-//	}
-	public String givenUsingJava8_whenGeneratingRandomAlphanumericString_thenCorrect() {
+		} 
+	public String maXN() {
 	    int leftLimit = 48; // numeral '0'
 	    int rightLimit = 122; // letter 'z'
 	    int targetStringLength = 10;
