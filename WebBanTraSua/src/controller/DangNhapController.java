@@ -24,9 +24,9 @@ public class DangNhapController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String action = "";
 		String userName = req.getParameter("username");
 		String passWord = req.getParameter("password");
-		
 		TaiKhoanDAO kh = new TaiKhoanDAO();
 		Map<String, TaiKhoan> listTK = kh.loadData();
 		if (kh.checkLogin(userName, passWord)&&kh.checkAdmin(userName, "admin")) {
@@ -41,8 +41,10 @@ public class DangNhapController extends HttpServlet {
 				session.setAttribute("user", tk);
 				res.sendRedirect(req.getContextPath() +"/index.jsp");
 			} else {
-					req.setAttribute("error", "Tài khoản hoặc mật khẩu không đúng");
-					req.getRequestDispatcher("login.jsp").forward(req, res);
+				String captcha = "<div class=\"g-recaptcha\" data-sitekey=\"6LdXdiMUAAAAAKirZUzx5jMHJ-Gs65uX-Kw5K7YF\"></div>";	
+				req.setAttribute("captcha", captcha);
+				req.setAttribute("error", "  *Tài khoản hoặc mật khẩu không đúng");
+				req.getRequestDispatcher("login.jsp").forward(req, res);
 				}
 				
 			}

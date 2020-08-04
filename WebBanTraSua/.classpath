@@ -23,6 +23,6 @@
 	<classpathentry exported="true" kind="lib" path="Libs/restfb-2.3.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/javax.mail.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-8.0.20.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/activation-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/activation-1.1.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

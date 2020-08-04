@@ -1,6 +1,4 @@
-/controller/
-/dao/
-/mail/
 /model/
+/controller/
 /facebook/
 /google/
