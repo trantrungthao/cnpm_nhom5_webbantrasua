@@ -13,8 +13,7 @@ import javax.servlet.http.HttpSession;
 import dao.TaiKhoanDAO;
 import model.TaiKhoan;
 
-
-@WebServlet(urlPatterns = { "/dangnhap" })
+@WebServlet(urlPatterns = { "/Dangnhap" })
 public class DangNhapController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -24,35 +23,58 @@ public class DangNhapController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String action = "";
-		String userName = req.getParameter("username");
-		String passWord = req.getParameter("password");
-		TaiKhoanDAO kh = new TaiKhoanDAO();
-		Map<String, TaiKhoan> listTK = kh.loadData();
-		if (kh.checkLogin(userName, passWord)&&kh.checkAdmin(userName, "admin")) {
-			HttpSession session = req.getSession();
-			TaiKhoan tk = listTK.get(userName);
-			session.setAttribute("user", tk);
-			res.sendRedirect(req.getContextPath() + "/admin/adminindex.jsp");
-		} else {
-			if (kh.checkLogin(userName, passWord)) {
-				HttpSession session = req.getSession();
-				TaiKhoan tk = listTK.get(userName);
-				session.setAttribute("user", tk);
-				res.sendRedirect(req.getContextPath() +"/trangchu.jsp");
-			} else {
-				String captcha = "<div class=\"g-recaptcha\" data-sitekey=\"6LdXdiMUAAAAAKirZUzx5jMHJ-Gs65uX-Kw5K7YF\"></div>";	
-				req.setAttribute("captcha", captcha);
-				req.setAttribute("error", "  *Tài khoản hoặc mật khẩu không đúng");
-				req.getRequestDispatcher("dangnhap.jsp").forward(req, res);
+		// Nhận dữ liệu từ trang đăng nhập
+		String action = req.getParameter("action");
+		String tendangnhap = req.getParameter("tendangnhap");
+		String matkhau = req.getParameter("matkhau");
+//		// Nhận mã captcha
+//		String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
+//		boolean verify = Captcha.verify(gRecaptchaResponse);
+		
+		// Tạo 1 phiên làm việc lưu lại trảng thái người dùng
+		HttpSession session = req.getSession();
+		// Xử lý đăng nhập
+		if (action.equals("dangnhap")) {
+			TaiKhoanDAO TKD = new TaiKhoanDAO();
+			// Lấy danh sách tài khoản trong database
+			Map<String, TaiKhoan> listTK = TKD.loadData();
+			// Kiểm tra tài khoản và mật khẩu
+			if (TKD.checkLogin(tendangnhap, matkhau)) {
+				// Kiểm tra quyền admin
+				if (TKD.checkAdmin(tendangnhap, "admin")) {
+					TaiKhoan tk = listTK.get(tendangnhap);
+					session.setAttribute("tk", tk);
+					// Chuyển qua trang admin
+					res.sendRedirect(req.getContextPath() + "/admin/adminindex.jsp");
+				} else {
+					TaiKhoan tk = listTK.get(tendangnhap);
+					session.setAttribute("tk", tk);
+					// Chuyển qua trang chủ
+					res.sendRedirect("trangchu.jsp");
 				}
-				
+			} else {
+//				// Mã captcha
+//				String captcha = "<div class=\"g-recaptcha\" data-sitekey=\"6LdXdiMUAAAAAKirZUzx5jMHJ-Gs65uX-Kw5K7YF\"></div>";
+//				req.setAttribute("captcha", captcha);
+				req.setAttribute("error", "  *Tài khoản hoặc mật khẩu không đúng");
+				// Chuyển lại trang đăng nhập
+				req.getRequestDispatcher("dangnhap.jsp").forward(req, res);
 			}
-	
+
 		}
+		//
+		else if (action.equals("dangxuat")) {
+			session.invalidate();
+			res.sendRedirect("trangchu.jsp");
+		//
+		}else if(action.equals("captcha")) {
+			
+		}
+	}
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		doPost(req, resp);
 	}
 }

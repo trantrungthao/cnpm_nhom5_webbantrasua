@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="model.TaiKhoan"%>
-<%TaiKhoan tk = (TaiKhoan)session.getAttribute("user"); %>
+<%TaiKhoan tk = (TaiKhoan)session.getAttribute("tk"); %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -96,9 +96,10 @@
                             <div class="header__top__right__auth">
                             	<!-- Xử lý đăng nhập-->
                                 <a href="khachhang/info.html"><%if(tk!=null){ out.print(tk.getTendangnhap());}%></a>
+                                <a href="<%=request.getContextPath()%>/Dangnhap?action=dangxuat" style="float: left"><% if(tk!=null){ out.print("Đăng xuất");}%></a>
                					<a href="dangnhap.jsp" style="float: left"><% if(tk==null){ out.print("Đăng nhập ");}%></a>
                					<!-- <a style="float: left; margin-left: 2px"> <span> | </span> </a> -->
-               					<a href="dangky.jsp" style="float: left; padding-left: 2px"><% if(tk==null){ out.print(" Đăng ký");}%></a>
+               					<a href="dangky.jsp" style="float: left; padding-left: 2px"><% if(tk==null){ out.print("/Đăng ký");}%></a>
                             </div>
                         </div>
                     </div>

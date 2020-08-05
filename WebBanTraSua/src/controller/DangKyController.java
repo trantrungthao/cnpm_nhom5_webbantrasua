@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Map;
 import java.util.Random;
 
 import javax.servlet.ServletException;
@@ -53,7 +52,7 @@ public class DangKyController extends HttpServlet {
 				SendMail.sendMail(email, "Trà Sữa Online", "Mã xác nhận của bạn là: " + maXN);
 				TaiKhoan tk = new TaiKhoan(tendangnhap, matkhau, null, email, null, null);
 				//ghi nhớ các trường đã nhập khi đăng ký
-				session.setAttribute("user", tk);
+				session.setAttribute("tk", tk);
 				//lưu lại mã xác nhận khi đăng ký
 				session.setAttribute("ma", maXN);
 				//chuyển qua trang nhập mã xác nhận
@@ -74,7 +73,7 @@ public class DangKyController extends HttpServlet {
 			String ma = (String) session.getAttribute("ma");
 			//kiểm tra xem mã nhập vào có trùng với mã được nhận không
 			if(ma.equals(maxacnhan)) {
-				TaiKhoan tk = (TaiKhoan) session.getAttribute("user");
+				TaiKhoan tk = (TaiKhoan) session.getAttribute("tk");
 				//nếu trùng thì thêm tài khoản vào cơ sở dữ liệu
 			tkD.themTaikhoan(tk);
 			res.sendRedirect(req.getContextPath() + "/trangchu.jsp");

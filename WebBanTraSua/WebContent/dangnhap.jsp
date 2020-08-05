@@ -26,9 +26,7 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
 
 <!-- Đăng nhập bằng google -->
-	<meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="788574466020-k3ifc49gl8efn3hq4ebu5s9o5jf7ako5.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" aync defer></script>
+
 </head>
 <body>
 	
@@ -39,7 +37,7 @@
 					<img src="khachhang\img\ts\logodn.png" alt="IMG">
 				</div>
 
-				<form action="<%=request.getContextPath()%>/dangnhap" method="POST" class="login100-form validate-form">
+				<form action="<%=request.getContextPath()%>/Dangnhap?action=dangnhap" method="POST" class="login100-form validate-form">
 					<span class="login100-form-title">
 						ĐĂNG NHẬP
 					</span>
@@ -47,12 +45,12 @@
 					<a>${error}</a>	
 					<div class="wrap-input100 validate-input">
 						<!-- Kiểm tra trường dữ liệu không để trống và nhận vào userName-->
-						<input class="input100" type="text" name="username" placeholder="Tên đăng nhập" required/>
+						<input class="input100" type="text" name="tendangnhap" placeholder="Tên đăng nhập" required/>
 					</div>
 
 					<div class="wrap-input100 validate-input" >
 						<!--Kiểm tra password đủ 6 kí tự trở lên và nhận vào password-->
-						<input class="input100" type="password" name="password" placeholder="Mật khẩu" pattern=".{6,}"
+						<input class="input100" type="password" name="matkhau" placeholder="Mật khẩu" pattern=".{6,}"
               title="6 kí tự trở lên" required/>
 					</div>
 					<a>${captcha}</a>
@@ -73,6 +71,11 @@
 							Tên đăng nhập / Mật khẩu?
 						</a>
 					</div>
+					<div class="text-center p-t-12">
+					 <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/WebBanTraSua/google&response_type=code
+    &client_id=788574466020-k3ifc49gl8efn3hq4ebu5s9o5jf7ako5.apps.googleusercontent.com&approval_prompt=force">Google+</a>
+     <a href="https://www.facebook.com/dialog/oauth?client_id=736929813734347&redirect_uri=http://localhost:8080/WebBanTraSua/facebook">/Facebook+</a>
+					</div>
 					<div class="text-center p-t-136">
 						<a class="txt2" href="dangky.jsp">
 							Đăng kí tài khoản
@@ -84,25 +87,10 @@
 		</div>
 	</div>
 	<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=736929813734347&autoLogAppEvents=1" nonce="8ET0v11E"></script>
 	
 
-	<script>
-      function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-      }
-    </script>
+	<script></script>
+    <script></script>
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

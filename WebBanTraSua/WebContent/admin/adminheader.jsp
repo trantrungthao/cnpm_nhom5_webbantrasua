@@ -30,7 +30,7 @@
 <div class="navbar-custom-menu">
 					<ul class="nav navbar-nav">
 						<!-- Messages: style can be found in dropdown.less-->
-						<li class="dropdown messages-menu"><a href="<%=request.getContextPath()%>/index.jsp">QUAY LẠI SHOP</a>
+						<li class="dropdown messages-menu"><a href="<%=request.getContextPath()%>/trangchu.jsp">QUAY LẠI SHOP</a>
 							</li>
 					</ul>
 				</div>

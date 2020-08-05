@@ -66,7 +66,7 @@
 					Admin  <small>small</small>
 				</h1>
 				<ol class="breadcrumb">
-					<li><a href="<%=request.getContextPath()%>/login.jsp"><i class="fa fa-dashboard"></i>Đăng xuất</a></li>
+					<li><a href="<%=request.getContextPath()%>/Dangnhap?action=dangxuat"><i class="fa fa-dashboard"></i>Đăng xuất</a></li>
 				</ol>
 			</section>
 			<!-- Main content -->
