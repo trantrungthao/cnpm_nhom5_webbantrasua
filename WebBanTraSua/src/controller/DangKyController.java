@@ -20,7 +20,6 @@ import model.TaiKhoan;
 @WebServlet(urlPatterns = { "/dangky" })
 public class DangKyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	public DangKyController() {
 		super();
 	}
@@ -36,7 +35,7 @@ public class DangKyController extends HttpServlet {
 		String matkhau = req.getParameter("matkhau");
 		String nhaplaimk = req.getParameter("nhaplaimk");
 		String maxacnhan = req.getParameter("maxacnhan");
-		String maXN = "123456";
+//		String maXN = maXN();
 		// Kiểm tra tên đăng nhâp
 		TaiKhoanDAO tkD = new TaiKhoanDAO();
 		HttpSession session = req.getSession();
@@ -46,9 +45,11 @@ public class DangKyController extends HttpServlet {
 		if(action.equals("dangky")) {
 		if(tkD.ktTK(tendangnhap)) {
 			if(matkhau.equals(nhaplaimk)) {
-				SendMail.sendMail(email, "Trà Sữa Online", maXN);
+				String maXN = maXN();
+				SendMail.sendMail(email, "Trà Sữa Online", "Mã xác nhận của bạn là: " + maXN);
 				TaiKhoan tk = new TaiKhoan(tendangnhap, matkhau, null, email, null, null);
 				session.setAttribute("user", tk);
+				session.setAttribute("ma", maXN);
 				res.sendRedirect(req.getContextPath() + "/test.jsp");
 			}else {
 				req.setAttribute("error", "Mật khẩu không trùng khớp");
@@ -62,20 +63,22 @@ public class DangKyController extends HttpServlet {
 		
 		// Xác nhận mã
 		if(action.equals("maxacnhan")) {
-			if(maXN.equals(maxacnhan)) {
+			String ma = (String) session.getAttribute("ma");
+			if(ma.equals(maxacnhan)) {
 				TaiKhoan tk = (TaiKhoan) session.getAttribute("user");
 			tkD.themTaikhoan(tk);
 			res.sendRedirect(req.getContextPath() + "/index.jsp");
 		}else {
 			req.setAttribute("error", "Mã xác nhận sai");
+			req.setAttribute("er", ma);
 			req.getRequestDispatcher("test.jsp").forward(req, res);
 		}
 		}
 		} 
-	public String maXN() {
+	public static String maXN() {
 	    int leftLimit = 48; // numeral '0'
 	    int rightLimit = 122; // letter 'z'
-	    int targetStringLength = 10;
+	    int targetStringLength = 5;
 	    Random random = new Random();
 	 
 	    String generatedString = random.ints(leftLimit, rightLimit + 1)
@@ -84,14 +87,15 @@ public class DangKyController extends HttpServlet {
 	      .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
 	      .toString();
 	 
-	    return "Ma xac nhan dang nhap cua ban la:"+ "\t" + generatedString;
+	    return generatedString;
 	}
 
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		super.doPost(req, resp);
 	}
-
+public static void main(String[] args) {
+	
+}
 }

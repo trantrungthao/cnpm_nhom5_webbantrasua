@@ -13,6 +13,7 @@
             <input type="text" name="maxacnhan" >
             <input type="submit" value="Xác nhận">
             <a>${error}</a>
+            <a>${er}</a>
         </form>
     </body>
 </html>
