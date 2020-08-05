@@ -38,9 +38,8 @@ public class SendMail {
 
 	}
 	
-	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
-		SendMail mail = new SendMail();
+//		SendMail mail = new SendMail();
 		
 //		System.out.println(mail.sendMail("17130033@st.hcmuaf.edu.vn", "Trà sữa online", "MÃ£: 123456"));
 		

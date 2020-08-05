@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -13,12 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.SanPhamDAO;
 import dao.TaiKhoanDAO;
 import mail.SendMail;
-import model.SanPham;
 import model.TaiKhoan;
-import sun.security.krb5.internal.tools.Ktab;
+
 
 
 @WebServlet(urlPatterns = { "/dangky" })
@@ -39,22 +35,21 @@ public class DangKyController extends HttpServlet {
 		String email = req.getParameter("email");
 		String matkhau = req.getParameter("matkhau");
 		String nhaplaimk = req.getParameter("nhaplaimk");
-		String hovaten =  req.getParameter("hovaten");
-		String sdt =  req.getParameter("sdt");
+		String maxacnhan = req.getParameter("maxacnhan");
+		String maXN = "123456";
 		// Kiểm tra tên đăng nhâp
 		TaiKhoanDAO tkD = new TaiKhoanDAO();
-		SendMail mail = new SendMail();
-		Random rd = new Random();
-		int maxacnhan = rd.nextInt();
+		HttpSession session = req.getSession();
+		
+
 		// Đăng kí
 		if(action.equals("dangky")) {
 		if(tkD.ktTK(tendangnhap)) {
 			if(matkhau.equals(nhaplaimk)) {
-				mail.sendMail(email, "Trà Sữa Online", maXN());
-				String inputma = "<input class=\"input100\" type=\"text\" name=\"maxn\"placeholder=\"Mã xác nhận\"  title=\"Vui lòng kiểm tra email để lấy mã xác nhận\"></input>";
-				req.setAttribute("maxn", inputma);
-				req.setAttribute("tb", "Hãy kiểm tra email để lấy mã xác nhận");
-				req.getRequestDispatcher("register.jsp").forward(req, res);
+				SendMail.sendMail(email, "Trà Sữa Online", maXN);
+				TaiKhoan tk = new TaiKhoan(tendangnhap, matkhau, null, email, null, null);
+				session.setAttribute("user", tk);
+				res.sendRedirect(req.getContextPath() + "/test.jsp");
 			}else {
 				req.setAttribute("error", "Mật khẩu không trùng khớp");
 				req.getRequestDispatcher("register.jsp").forward(req, res);
@@ -66,11 +61,16 @@ public class DangKyController extends HttpServlet {
 		}
 		
 		// Xác nhận mã
-		if(action.equals("xacnhanma")) {
-			TaiKhoan tk = new TaiKhoan(tendangnhap, matkhau, null, null, email, null);
+		if(action.equals("maxacnhan")) {
+			if(maXN.equals(maxacnhan)) {
+				TaiKhoan tk = (TaiKhoan) session.getAttribute("user");
 			tkD.themTaikhoan(tk);
+			res.sendRedirect(req.getContextPath() + "/index.jsp");
+		}else {
+			req.setAttribute("error", "Mã xác nhận sai");
+			req.getRequestDispatcher("test.jsp").forward(req, res);
 		}
-
+		}
 		} 
 	public String maXN() {
 	    int leftLimit = 48; // numeral '0'
