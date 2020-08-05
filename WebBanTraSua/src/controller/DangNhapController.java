@@ -39,12 +39,12 @@ public class DangNhapController extends HttpServlet {
 				HttpSession session = req.getSession();
 				TaiKhoan tk = listTK.get(userName);
 				session.setAttribute("user", tk);
-				res.sendRedirect(req.getContextPath() +"/index.jsp");
+				res.sendRedirect(req.getContextPath() +"/trangchu.jsp");
 			} else {
 				String captcha = "<div class=\"g-recaptcha\" data-sitekey=\"6LdXdiMUAAAAAKirZUzx5jMHJ-Gs65uX-Kw5K7YF\"></div>";	
 				req.setAttribute("captcha", captcha);
 				req.setAttribute("error", "  *Tài khoản hoặc mật khẩu không đúng");
-				req.getRequestDispatcher("login.jsp").forward(req, res);
+				req.getRequestDispatcher("dangnhap.jsp").forward(req, res);
 				}
 				
 			}

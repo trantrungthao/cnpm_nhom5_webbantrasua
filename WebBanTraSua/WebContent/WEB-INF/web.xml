@@ -6,6 +6,6 @@
     <location>/admin/404.jsp</location>
   </error-page>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>trangchu.jsp</welcome-file>
   </welcome-file-list>
 </web-app>

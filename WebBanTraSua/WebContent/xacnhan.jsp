@@ -1,9 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%-- <!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Xác nhận mã</title>
+    </head>
+    <body>
+        <span>Kiểm tra mail và nhập mã xác nhận</span>
+        
+        <form action="<%=request.getContextPath()%>/dangky?action=maxacnhan" method="post">
+            <input type="text" name="maxacnhan" >
+            <input type="submit" value="Xác nhận">
+            <a>${error}</a>
+        </form>
+    </body>
+</html> --%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Đăng nhập</title>
+	<title>Xác nhận</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -22,13 +38,6 @@
 	<link rel="stylesheet" type="text/css" href="khachhang/css/util.css">
 	<link rel="stylesheet" type="text/css" href="khachhang/css/main.css">
 <!--===============================================================================================-->
-<!-- API captcha google -->
-<script src="https://www.google.com/recaptcha/api.js"></script>
-
-<!-- Đăng nhập bằng google -->
-	<meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="788574466020-k3ifc49gl8efn3hq4ebu5s9o5jf7ako5.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" aync defer></script>
 </head>
 <body>
 	
@@ -39,70 +48,29 @@
 					<img src="khachhang\img\ts\logodn.png" alt="IMG">
 				</div>
 
-				<form action="<%=request.getContextPath()%>/dangnhap" method="POST" class="login100-form validate-form">
+				<form action="<%=request.getContextPath()%>/dangky?action=maxacnhan" method="POST" >
 					<span class="login100-form-title">
-						ĐĂNG NHẬP
+						XÁC NHẬN
 					</span>
-					<!--Hiện thông báo đăng nhập không thành công-->
-					<a>${error}</a>	
+					<div  style="text-align: center; padding-bottom: 10px">
+						<i>Hãy kiểm tra email và nhập mã xác nhận</i>
+				</div>
 					<div class="wrap-input100 validate-input">
-						<!-- Kiểm tra trường dữ liệu không để trống và nhận vào userName-->
-						<input class="input100" type="text" name="username" placeholder="Tên đăng nhập" required/>
+						<input class="input100" type="text" name="maxacnhan" placeholder="Mã xác nhận" required/>
 					</div>
-
-					<div class="wrap-input100 validate-input" >
-						<!--Kiểm tra password đủ 6 kí tự trở lên và nhận vào password-->
-						<input class="input100" type="password" name="password" placeholder="Mật khẩu" pattern=".{6,}"
-              title="6 kí tự trở lên" required/>
-					</div>
-					<a>${captcha}</a>
+					<a>${error}</a>
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="submit">
-							Đăng nhập
+						<button class="login100-form-btn" type="submit" value="Xác nhận">
+							Xác nhận
 						</button>
 					</div>
-				<!--  
-					<div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
-					<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-				-->		
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Quên
-						</span>
-						<a class="txt2" href="#">
-							Tên đăng nhập / Mật khẩu?
-						</a>
-					</div>
-					<div class="text-center p-t-136">
-						<a class="txt2" href="khachhang/register.html">
-							Đăng kí tài khoản
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
+					
 				</form>
 			</div>
 		</div>
 	</div>
-	<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=736929813734347&autoLogAppEvents=1" nonce="8ET0v11E"></script>
 	
-
-	<script>
-      function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-      }
-    </script>
+	
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

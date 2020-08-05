@@ -50,7 +50,7 @@ public class TaiKhoanDAO{
 		TaiKhoan tk = mapTaiKhoan.get(userName);
 		//nếu tk có trong map
 		if(tk!=null) {
-			if(tk.getRole().equals(role)) {
+			if(tk.getRole()==role) {
 				return true;
 			}else {
 				return false;

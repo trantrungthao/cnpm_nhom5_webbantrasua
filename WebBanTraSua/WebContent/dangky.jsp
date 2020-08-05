@@ -79,8 +79,7 @@
                 		nhaplaimk = "";
 						}%>
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input class="input100" type="password" name="nhaplaimk" value="<%=nhaplaimk%>" placeholder="Nhập lại mật khẩu" pattern=".{6,}"
-              title="6 kí tự trở lên" required/>
+                    <input class="input100" type="password" name="nhaplaimk" value="<%=nhaplaimk%>" placeholder="Nhập lại mật khẩu" required/>
                     <!--						<span class="focus-input100"></span>-->
                     <!--						<span class="symbol-input100">-->
                     <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
