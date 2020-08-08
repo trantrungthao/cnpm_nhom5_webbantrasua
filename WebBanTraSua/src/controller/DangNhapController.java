@@ -14,7 +14,7 @@ import dao.TaiKhoanDAO;
 import model.Captcha;
 import model.TaiKhoan;
 
-@WebServlet(urlPatterns = { "/Dangnhap" })
+@WebServlet(urlPatterns = {"/Dangnhap"})
 public class DangNhapController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

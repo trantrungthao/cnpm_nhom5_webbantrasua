@@ -19,7 +19,7 @@ import com.google.gson.JsonObject;
 
 import model.TaiKhoan;
 
-@WebServlet("/google")
+@WebServlet(urlPatterns = {"/google"})
 public class GoogleController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static String GOOGLE_CLIENT_ID = "788574466020-k3ifc49gl8efn3hq4ebu5s9o5jf7ako5.apps.googleusercontent.com";

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.SanPhamDAO;
 import model.SanPham;
 
-@WebServlet("/Quanlysanpham")
+@WebServlet(urlPatterns = {"/Quanlysanpham"})
 public class SanPhamController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

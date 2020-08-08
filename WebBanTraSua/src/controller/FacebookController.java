@@ -22,7 +22,7 @@ import com.restfb.types.User;
 
 import model.TaiKhoan;
 
-@WebServlet("/facebook")
+@WebServlet(urlPatterns = {"/facebook"})
 public class FacebookController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static String FACEBOOK_APP_ID = "736929813734347";
