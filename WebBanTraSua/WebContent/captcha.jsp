@@ -9,8 +9,12 @@
 <body>
 
 	<form action="<%=request.getContextPath()%>/Dangnhap?action=captcha" method="POST">
+		
+		<a>${error}</a>
+		
 		<div class="g-recaptcha"
 			data-sitekey="6LdXdiMUAAAAAKirZUzx5jMHJ-Gs65uX-Kw5K7YF"></div>
+			
 		<br> <input type="submit" value="Xác nhận">
 	</form>
 </body>

@@ -16,7 +16,7 @@ import model.TaiKhoan;
 
 
 
-@WebServlet(urlPatterns = { "/dangky" })
+@WebServlet("/dangky")
 public class DangKyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public DangKyController() {

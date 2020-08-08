@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.TaiKhoanDAO;
+import model.Captcha;
 import model.TaiKhoan;
 
 @WebServlet(urlPatterns = { "/Dangnhap" })
@@ -27,12 +28,10 @@ public class DangNhapController extends HttpServlet {
 		String action = req.getParameter("action");
 		String tendangnhap = req.getParameter("tendangnhap");
 		String matkhau = req.getParameter("matkhau");
-//		// Nhận mã captcha
-//		String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
-//		boolean verify = Captcha.verify(gRecaptchaResponse);
-		
+
 		// Tạo 1 phiên làm việc lưu lại trảng thái người dùng
 		HttpSession session = req.getSession();
+
 		// Xử lý đăng nhập
 		if (action.equals("dangnhap")) {
 			TaiKhoanDAO TKD = new TaiKhoanDAO();
@@ -53,22 +52,41 @@ public class DangNhapController extends HttpServlet {
 					res.sendRedirect("trangchu.jsp");
 				}
 			} else {
-//				// Mã captcha
-//				String captcha = "<div class=\"g-recaptcha\" data-sitekey=\"6LdXdiMUAAAAAKirZUzx5jMHJ-Gs65uX-Kw5K7YF\"></div>";
-//				req.setAttribute("captcha", captcha);
+				int count = 0;
+				if(session.getAttribute("solandn")!=null) {
+					count= (int) session.getAttribute("solandn");
+				}
+				count++;
+				if(count>2) {
+					session.removeAttribute("solandn");
+					count=0;
+					res.sendRedirect("captcha.jsp");
+				}else {
+				session.setAttribute("solandn", count);
+				req.setAttribute("solandn", count);
 				req.setAttribute("error", "  *Tài khoản hoặc mật khẩu không đúng");
-				// Chuyển lại trang đăng nhập
 				req.getRequestDispatcher("dangnhap.jsp").forward(req, res);
+				System.out.println(count);
+				}
 			}
-
 		}
 		//
-		else if (action.equals("dangxuat")) {
+		if (action.equals("dangxuat")) {
 			session.invalidate();
 			res.sendRedirect("trangchu.jsp");
+		}
 		//
-//		}else if(action.equals("captcha")) {
-//			
+		if (action.equals("captcha")) {
+			String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
+			boolean verify = Captcha.verify(gRecaptchaResponse);
+			//
+			if (verify) {
+				res.sendRedirect("dangnhap.jsp");
+			} else {
+				req.setAttribute("error", "  *Vui lòng xác nhận captcha");
+				// Chuyển lại 
+				req.getRequestDispatcher("captcha.jsp").forward(req, res);
+			}
 		}
 	}
 
