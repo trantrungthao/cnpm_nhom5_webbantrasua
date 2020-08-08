@@ -47,7 +47,7 @@ public class DangKyController extends HttpServlet {
 			//kiểm tra nhập lại mật khẩu có trùng khớp với mật khẩu không
 			if(matkhau.equals(nhaplaimk)) {
 				//tạo một mã random
-				String maXN = maXN();
+				String maXN = generateRandomChars();
 				//nếu không trùng tên và mật khẩu trùng khớp thì gửi mã random tới email đã nhập
 				SendMail.sendMail(email, "Trà Sữa Online", "Mã xác nhận của bạn là: " + maXN);
 				TaiKhoan tk = new TaiKhoan(tendangnhap, matkhau, null, email, null, null);
@@ -83,21 +83,22 @@ public class DangKyController extends HttpServlet {
 		}
 		}
 		} 
-	//hàm tạo chuỗi random em lấy trên mạng
-	public static String maXN() {
-	    int leftLimit = 48; // numeral '0'
-	    int rightLimit = 122; // letter 'z'
-	    int targetStringLength = 5;
+	//hàm tạo chuỗi random
+	public String generateRandomChars() {
+		//chuỗi chỉ định các ký tự
+		String srcChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234556789";
+		//độ dài của chuỗi mới
+		int length = 5;
+		//StringBuilder sử dụng để tạo chuỗi có thể thay đổi
+	    StringBuilder sb = new StringBuilder();
 	    Random random = new Random();
-	 
-	    String generatedString = random.ints(leftLimit, rightLimit + 1)
-	      .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
-	      .limit(targetStringLength)
-	      .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-	      .toString();
-	    return generatedString;
+	    for (int i = 0; i < length; i++) {
+	    	//tạo một chuỗi mới từ các ký tự trong chuôi chỉ định
+	        sb.append(srcChars.charAt(random.nextInt(srcChars
+	                .length())));
+	    }
+	    return sb.toString();
 	}
-
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

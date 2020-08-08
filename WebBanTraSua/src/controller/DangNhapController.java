@@ -67,8 +67,8 @@ public class DangNhapController extends HttpServlet {
 			session.invalidate();
 			res.sendRedirect("trangchu.jsp");
 		//
-		}else if(action.equals("captcha")) {
-			
+//		}else if(action.equals("captcha")) {
+//			
 		}
 	}
 

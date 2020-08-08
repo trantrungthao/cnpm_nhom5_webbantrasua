@@ -76,8 +76,13 @@ public class TaiKhoanDAO {
 
 	// Kiem tra ten dang nhap da ton tai
 	public boolean ktTK(String tendangnhap) {
-		if (mapTaiKhoan.containsKey(tendangnhap)) {
-			return false;
+		TaiKhoan tk = mapTaiKhoan.get(tendangnhap);
+		if (tk != null) {
+			if (tk.getTendangnhap().equals(tendangnhap)) {
+				return false;
+			} else {
+				return true;
+			}
 		} else {
 			return true;
 		}
