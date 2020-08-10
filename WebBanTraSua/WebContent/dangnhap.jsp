@@ -50,7 +50,7 @@
 					<div class="wrap-input100 validate-input">
 						<!-- Kiểm tra trường dữ liệu không để trống và nhận vào userName-->
 						<input class="input100" type="text" name="tendangnhap"
-							placeholder="Tên đăng nhập" required />
+							placeholder="Tên đăng nhập" pattern="^([a-z0-9]){1,12}$" title="VD: trungthao, thaohien" required />
 					</div>
 
 					<div class="wrap-input100 validate-input">
@@ -61,8 +61,6 @@
 						
 						<input type="text" name="solandn" value="">
 					</div>
-					<a>${solandn}</a>
-					<a>${captcha}</a>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">Đăng nhập
 						</button>
@@ -79,6 +77,9 @@
 						<a
 							href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=https://localhost:8443/WebBanTraSua/google&response_type=code
     &client_id=788574466020-k3ifc49gl8efn3hq4ebu5s9o5jf7ako5.apps.googleusercontent.com&approval_prompt=force">Google+</a>
+						
+						
+						<!-- dùng để gọi hộp thoại Đăng nhập và cài đặt URL chuyển hướng. -->
 						<a
 							href="https://www.facebook.com/dialog/oauth?client_id=736929813734347&redirect_uri=https://localhost:8443/WebBanTraSua/facebook">/Facebook+</a>
 					</div>

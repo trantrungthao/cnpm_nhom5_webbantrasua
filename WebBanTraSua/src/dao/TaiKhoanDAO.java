@@ -11,7 +11,7 @@ import model.ConnectToDatabase;
 import model.TaiKhoan;
 
 public class TaiKhoanDAO {
-	public Map<String, TaiKhoan> mapTaiKhoan = loadData();
+	public Map<String, TaiKhoan> listTK = loadData();
 
 	public TaiKhoanDAO() {
 
@@ -46,7 +46,7 @@ public class TaiKhoanDAO {
 
 	// Kiểm tra tài khoản Admin
 	public boolean checkAdmin(String tendangnhap, String role) {
-		TaiKhoan tk = mapTaiKhoan.get(tendangnhap);
+		TaiKhoan tk = listTK.get(tendangnhap);
 		// nếu tk có trong map
 		if (tk != null) {
 			if (tk.getRole().equals(role)) {
@@ -61,7 +61,7 @@ public class TaiKhoanDAO {
 
 	// Kiểm tra đăng nhập
 	public boolean checkLogin(String tendangnhap, String matkhau) {
-		TaiKhoan tk = mapTaiKhoan.get(tendangnhap);
+		TaiKhoan tk = listTK.get(tendangnhap);
 		// nếu tk có trong map
 		if (tk != null) {
 			if (tk.getMatkhau().equals(matkhau)) {
@@ -76,7 +76,7 @@ public class TaiKhoanDAO {
 
 	// Kiem tra ten dang nhap da ton tai
 	public boolean ktTK(String tendangnhap) {
-		TaiKhoan tk = mapTaiKhoan.get(tendangnhap);
+		TaiKhoan tk = listTK.get(tendangnhap);
 		if (tk != null) {
 			if (tk.getTendangnhap().equals(tendangnhap)) {
 				return false;
@@ -92,8 +92,8 @@ public class TaiKhoanDAO {
 	// themTaikhoan
 	public void themTaikhoan(TaiKhoan tk) {
 		Connection connection = new ConnectToDatabase().getConnectDB();
-		String sql = "Insert into taikhoan(tendangnhap, matkhau, email) values ('" + tk.getTendangnhap() + "','"
-				+ tk.getMatkhau() + "','" + tk.getEmail() + "') ";
+		String sql = "Insert into taikhoan(tendangnhap, matkhau, email, role) values ('" + tk.getTendangnhap() + "','"
+				+ tk.getMatkhau() + "','" + tk.getEmail() + "','" + tk.getRole() + "') ";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.executeUpdate(sql);

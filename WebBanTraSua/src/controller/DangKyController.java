@@ -16,7 +16,7 @@ import model.TaiKhoan;
 
 
 
-@WebServlet(urlPatterns = {"/dangky"})
+@WebServlet("/dangky")
 public class DangKyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public DangKyController() {
@@ -50,7 +50,7 @@ public class DangKyController extends HttpServlet {
 				String maXN = generateRandomChars();
 				//nếu không trùng tên và mật khẩu trùng khớp thì gửi mã random tới email đã nhập
 				SendMail.sendMail(email, "Trà Sữa Online", "Mã xác nhận của bạn là: " + maXN);
-				TaiKhoan tk = new TaiKhoan(tendangnhap, matkhau, null, email, null, null);
+				TaiKhoan tk = new TaiKhoan(tendangnhap, matkhau, null, email, null, "kh");
 				//ghi nhớ các trường đã nhập khi đăng ký
 				session.setAttribute("tk", tk);
 				//lưu lại mã xác nhận khi đăng ký
