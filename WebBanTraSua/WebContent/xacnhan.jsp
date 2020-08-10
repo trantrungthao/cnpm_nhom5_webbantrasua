@@ -55,6 +55,7 @@
 					<div  style="text-align: center; padding-bottom: 10px">
 						<i>Hãy kiểm tra email và nhập mã xác nhận</i>
 				</div>
+				<!--Đăng ký: 13. Khách hàng nhập mã xác nhận  -->
 					<div class="wrap-input100 validate-input">
 						<input class="input100" type="text" name="maxacnhan" placeholder="Mã xác nhận" required/>
 					</div>

@@ -42,6 +42,7 @@
 					if (tendangnhap == null) {
 						tendangnhap = "";
 						}%>
+						<!--Đăng ký: 3. Khách hàng nhập tên đăng kí-->
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                     <input class="input100" type="text" name="tendangnhap" value="<%=tendangnhap%>" placeholder="Tên đăng nhập"
                     pattern="^([a-z0-9]){1,12}$" title="VD: trasua, trasua123" required/>
@@ -50,6 +51,7 @@
                     <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
                     <!--						</span>-->
                 </div>
+                <!--Đăng ký: 4. Khách hàng nhập email-->
                 	<%String email=request.getParameter("email");
                 	if (email == null) {
 						email = "";
@@ -62,6 +64,7 @@
                     <!--							<i class="fa fa-envelope" aria-hidden="true"></i>-->
                     <!--						</span>-->
                 </div>
+                <!--Đăng ký: 5. Khách hàng nhập mật khẩu-->
                 	<%String matkhau=request.getParameter("matkhau");
                 	if (matkhau == null) {
                 		matkhau = "";
@@ -74,6 +77,7 @@
                     <!--							<i class="fa fa-lock" aria-hidden="true"></i>-->
                     <!--						</span>-->
                 </div>
+                <!--Đăng ký: 6. Khách hàng nhập lại mật khẩu-->
                 <%String nhaplaimk=request.getParameter("nhaplaimk");
                 	if (nhaplaimk == null) {
                 		nhaplaimk = "";
@@ -87,6 +91,8 @@
                 </div>
                 <span>${maxn}</span>
                 <a>${error}</a>
+                <!--Đăng ký: 7. Khách hàng chọn đăng ký
+                			   8. Hệ thống kiểm tra dữ liệu-->
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn">
                         Đăng ký

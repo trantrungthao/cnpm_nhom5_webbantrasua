@@ -97,6 +97,8 @@
                             	<!-- Xử lý đăng nhập-->
                                 <a href="khachhang/info.html"><%if(tk!=null){ out.print(tk.getTendangnhap());}%></a>
                                 <a href="<%=request.getContextPath()%>/Dangnhap?action=dangxuat" style="float: left"><% if(tk!=null){ out.print("Đăng xuất");}%></a>
+                                <!--Đăng ký: 1. Khách hàng chọn đăng ký
+                                			   2. Hệ thống trả về trang đăng ký-->
                					<a href="dangnhap.jsp" style="float: left"><% if(tk==null){ out.print("Đăng nhập ");}%></a>
                					<!-- <a style="float: left; margin-left: 2px"> <span> | </span> </a> -->
                					<a href="dangky.jsp" style="float: left; padding-left: 2px"><% if(tk==null){ out.print("/Đăng ký");}%></a>

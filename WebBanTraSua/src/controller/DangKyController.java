@@ -42,20 +42,20 @@ public class DangKyController extends HttpServlet {
 
 		// Đăng kí
 		if(action.equals("dangky")) {
-			//kiểm tra trùng tên đăng ký
+			// Đăng ký: 9. Hệ thống kiểm tra trùng tên đăng ký
 		if(tkD.ktTK(tendangnhap)) {
-			//kiểm tra nhập lại mật khẩu có trùng khớp với mật khẩu không
+			// Đăng ký: 10. Hệ thống kiểm tra nhập lại mật khẩu có trùng khớp với mật khẩu không
 			if(matkhau.equals(nhaplaimk)) {
 				//tạo một mã random
 				String maXN = generateRandomChars();
-				//nếu không trùng tên và mật khẩu trùng khớp thì gửi mã random tới email đã nhập
+				// Đăng ký: 11. Nếu không trùng tên và mật khẩu trùng khớp thì hệ thống gửi mã random tới email đã nhập
 				SendMail.sendMail(email, "Trà Sữa Online", "Mã xác nhận của bạn là: " + maXN);
 				TaiKhoan tk = new TaiKhoan(tendangnhap, matkhau, null, email, null, "kh");
 				//ghi nhớ các trường đã nhập khi đăng ký
 				session.setAttribute("tk", tk);
 				//lưu lại mã xác nhận khi đăng ký
 				session.setAttribute("ma", maXN);
-				//chuyển qua trang nhập mã xác nhận
+				// Đăng ký: 12. Hệ thống chuyển qua trang nhập mã xác nhận
 				res.sendRedirect(req.getContextPath() + "/xacnhan.jsp");
 			}else {
 				req.setAttribute("error", "Mật khẩu không trùng khớp");
@@ -71,11 +71,12 @@ public class DangKyController extends HttpServlet {
 		if(action.equals("maxacnhan")) {
 			//lấy mã xác nhận đã lưu ở session trên
 			String ma = (String) session.getAttribute("ma");
-			//kiểm tra xem mã nhập vào có trùng với mã được nhận không
+			// Đăng ký: 14. Hệ thống kiểm tra xem mã nhập vào có trùng với mã nhận được không
 			if(ma.equals(maxacnhan)) {
 				TaiKhoan tk = (TaiKhoan) session.getAttribute("tk");
 				//nếu trùng thì thêm tài khoản vào cơ sở dữ liệu
 			tkD.themTaikhoan(tk);
+			// Đăng ký: 15. Hệ thống hiển thị trang chủ đã được đăng nhập vào tài khoản
 			res.sendRedirect(req.getContextPath() + "/trangchu.jsp");
 		}else {
 			req.setAttribute("error", "Mã xác nhận sai");
