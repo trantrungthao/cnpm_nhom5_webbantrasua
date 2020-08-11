@@ -22,7 +22,6 @@ import com.restfb.types.User;
 import model.TaiKhoan;
 
 // Dùng thư viện restfb để truy vấn thông tin với facebook api,
-// Dùng thư viện org.apache.httpcomponents (httpclient, httpcore, fluent) để gửi request tới facebook
 // Thư viện gson để convert dữ liệu từ dạng json và ngược lại.
 // Sau khi chọn tài khoản để đăng nhập, facebook sẽ gửi một đoạn mã (code) tới url “https://localhost:8443/WebBanTraSua/facebook” để server xử lý.
 @WebServlet("/facebook")

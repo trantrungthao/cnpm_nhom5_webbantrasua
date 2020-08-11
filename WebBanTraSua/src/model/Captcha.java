@@ -11,8 +11,9 @@ import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.net.ssl.HttpsURLConnection;
-
+//Thư viện gson để convert dữ liệu từ dạng json và ngược lại.
 public class Captcha {
+	// Dùng để khai báo url, secret API
 	public static final String url = "https://www.google.com/recaptcha/api/siteverify";
 	public static final String secret = "6LdXdiMUAAAAAEenbA-b4RoXwuDqe4HUB7SDPLNW";
 	private final static String USER_AGENT = "Mozilla/5.0";
@@ -26,14 +27,14 @@ public class Captcha {
 			URL obj = new URL(url);
 			HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
-			// add reuqest header
+			// Tiêu đề gửi request
 			con.setRequestMethod("POST");
 			con.setRequestProperty("User-Agent", USER_AGENT);
 			con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
 			String postParams = "secret=" + secret + "&response=" + gRecaptchaResponse;
 
-			// Send post request
+			// Gửi request
 			con.setDoOutput(true);
 			DataOutputStream wr = new DataOutputStream(con.getOutputStream());
 			wr.writeBytes(postParams);
@@ -50,10 +51,7 @@ public class Captcha {
 			}
 			in.close();
 
-			// print result
-			// System.out.println(response.toString());
-
-			// parse JSON response and return 'success' value
+			// Phản hồi JSON và trả về giá trị
 			JsonReader jsonReader = Json.createReader(new StringReader(response.toString()));
 			JsonObject jsonObject = jsonReader.readObject();
 			jsonReader.close();

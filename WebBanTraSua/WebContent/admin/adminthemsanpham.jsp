@@ -57,6 +57,7 @@
 		<div class="content-wrapper" style="margin-top: 5px;">
 		<section class="content-header">
 			<h3>Nhập thông tin sản phẩm</h3>
+			<a>${Error}</a>
 			<form class="form-horizontal"
 				action="<%=request.getContextPath()%>/Quanlysanpham" method="POST">
 				<div class="form-group">

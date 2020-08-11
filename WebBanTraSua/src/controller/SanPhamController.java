@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.SanPhamDAO;
 import model.SanPham;
 
-@WebServlet(urlPatterns = {"/Quanlysanpham"})
+@WebServlet("/Quanlysanpham")
 public class SanPhamController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -41,35 +41,35 @@ public class SanPhamController extends HttpServlet {
 		String tensp = req.getParameter("tensanpham");
 		String hinhanh = req.getParameter("hinhanh");
 		double gia = Double.parseDouble(req.getParameter("giaban"));
-		try {
 			// Nếu mã sản phẩm không tồn tại
-			if (checkMasp(masp)) {
-				SanPham SP = new SanPham(masp, tensp, hinhanh, gia);
-				SanPhamDAO SPD = new SanPhamDAO();
-				// Thêm sản phẩm vào database
-				SPD.insert(SP);
-				// Trả về trang quản lý sản phẩm
-				res.sendRedirect(req.getContextPath() + "/Quanlysanpham");
-			} else {
-				// Nếu mã sản phẩm tồn tại
-				String er = "Mã sản phẩm đã tồn tại";
-				// Thông báo
-				req.setAttribute("Error", er);
-				// Trả về trang thêm sản phẩm
-				req.getRequestDispatcher(req.getContextPath() + "/admin/adminthemsanpham.jsp").forward(req, res);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-
-		}
+				try {
+					if (checkMasp(masp)) {
+						SanPham SP = new SanPham(masp, tensp, hinhanh, gia);
+						SanPhamDAO SPD = new SanPhamDAO();
+						// Thêm sản phẩm vào database
+						SPD.insert(SP);
+						// Trả về trang quản lý sản phẩm
+						res.sendRedirect(req.getContextPath() + "/Quanlysanpham");
+					} else {
+						// Nếu mã sản phẩm tồn tại
+						String er = "Mã sản phẩm đã tồn tại";
+						// Thông báo
+						req.setAttribute("Error", er);
+						// Trả về trang thêm sản phẩm
+						req.getRequestDispatcher("/admin/adminthemsanpham.jsp").forward(req, res);
+					}
+				} catch (SQLException | IOException | ServletException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 	}
 
 	// Kiểm tra mã sản phẩm tồn tại hay chưa
-	private boolean checkMasp(String masp) throws SQLException {
+	private boolean checkMasp(String masp) throws SQLException{
 		SanPhamDAO SPD = new SanPhamDAO();
 		List<SanPham> sanpham = SPD.listSP();
 		for (SanPham sp : sanpham) {
-			if (sp.getMasp() == masp) {
+			if (sp.getMasp().equals(masp)) {
 				return false;
 			}
 		}

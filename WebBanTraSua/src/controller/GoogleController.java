@@ -45,9 +45,9 @@ public class GoogleController extends HttpServlet {
 			String accessToken = getToken(code);
 			// Dùng access-token để truy cập các thông tin trong tài khoản google như email,
 			// name, id
-			TaiKhoanGoogle googlePojo = getUserInfo(accessToken);
+			TaiKhoanGoogle tkgoogle = getUserInfo(accessToken);
 			// Lấy tra tên email
-			TaiKhoan tk = new TaiKhoan(googlePojo.getEmail(), null, null, null, null, null);
+			TaiKhoan tk = new TaiKhoan(tkgoogle.getEmail(), null, null, null, null, null);
 			// Tạo 1 phiện làm việc để lưu lại trạng thái đăng nhập
 			HttpSession session = req.getSession();
 			session.setAttribute("tk", tk);
@@ -61,7 +61,7 @@ public class GoogleController extends HttpServlet {
 		doGet(request, response);
 	}
 
-	// dùng để gửi truy vấn tới google đổi code sang access-token
+	// Dùng để gửi truy vấn tới google đổi code sang access-token
 	private String getToken(String code) throws ClientProtocolException, IOException {
 		// Gửi request từ bên trong class servlet
 		String response = Request.Post(GOOGLE_LINK_GET_TOKEN)

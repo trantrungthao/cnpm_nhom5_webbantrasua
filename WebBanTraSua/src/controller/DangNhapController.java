@@ -17,7 +17,6 @@ import model.TaiKhoan;
 // Mapping: Gọi servlet xử lý từ trang dangnhap.jsp
 @WebServlet("/Dangnhap")
 public class DangNhapController extends HttpServlet {
-	// Sử dụng để kiểm soát phiên và khôi phục đối tượng được tuần tự hóa và ném ra ngoại lệ
 	private static final long serialVersionUID = 1L;
 
 	// Constructor

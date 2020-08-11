@@ -58,8 +58,7 @@
 						<input class="input100" type="password" name="matkhau"
 							placeholder="Mật khẩu" pattern=".{6,}" title="6 kí tự trở lên"
 							required />
-						
-						<input type="text" name="solandn" value="">
+		
 					</div>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">Đăng nhập
